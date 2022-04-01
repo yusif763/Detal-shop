@@ -1,0 +1,7 @@
+location /static/ {
+    alias /detal/static/;
+}
+
+location /media/ {
+    alias /detal/media/;
+}

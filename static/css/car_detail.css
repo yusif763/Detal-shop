@@ -1,0 +1,230 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+#reklam-banner-left-side-cardetail-page{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-cardetail-page{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
+body{
+    background: #E5E5E5;
+}
+.container{
+    width: 70% !important;
+}
+
+#car-parts{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+#car-parts-main{
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    height: 600px;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
+    position: relative;
+}
+
+.car-part{
+    width: 100%;
+    background: #ED1F24;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    height: 40%;
+}
+#front-part{
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+#middle-part{
+    grid-row: 1/2;
+    grid-column: 3/4;
+}
+#back-part{
+    grid-row: 1/2;
+    grid-column: 5/6;
+}
+#front-arrow{
+    grid-row: 2/3;
+    grid-column: 1/2;
+    display: flex;
+    justify-content: end;
+}
+
+#middle-arrow{
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    justify-content: center;
+}
+#back-arrow{
+    grid-row: 2/3;
+    grid-column: 5/6;
+    display: flex;
+    justify-content: start;
+}
+
+#image-part{
+    grid-row: 3/5;
+    grid-column: 2/5;
+}
+
+#under-part{
+    margin-top: 15%;
+    grid-row: 6/7;
+    grid-column: 3/4;
+}
+#under-arrow{
+    margin-top: 15%;
+    grid-row: 5/6;
+    grid-column: 3/4;
+    display: flex;
+    justify-content: center;
+
+}
+
+.under-part{
+    height: 70%;
+}
+#car-img{
+    width: 100%;
+}
+
+
+
+@media only screen and (max-width:768px){
+    #car-parts-main{
+        width: 50%;
+        margin: 0 auto;
+        display: grid;
+        height: 400px;
+        grid-template-columns:1fr;
+        grid-template-rows:1fr 1fr 1fr 1fr;
+        position: relative;
+    }
+    #front-part{
+        grid-column: 1/1;
+    grid-row: 1/1;
+    display: block;
+    align-items: center;
+    width: 100%;
+    }
+    
+    #middle-part{
+        grid-column: 1/1;
+        grid-row: 2/2;
+        display: block;
+        align-items: center;
+        width: 100%;
+    }
+    #back-part{
+        grid-column: 1/1;
+        grid-row: 3/3;
+        display: block;
+        align-items: center;
+        width: 100%;
+    }
+    #under-part{
+        grid-column: 1/1;
+        grid-row: 4/4;
+        display: block;
+        align-items: center;
+        width: 100%;
+        margin-top: 0;
+    }
+    .car-part{
+        width: 100%;
+        background: #ED1F24;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        height: 70%;
+    }
+    .under-part{
+        height: 70%;
+    }
+    #front-arrow{
+        display: none;
+    }
+    #back-arrow{
+        display: none;
+    }
+    #middle-arrow{
+        display: none;
+    }
+    #under-arrow{
+        display: none;
+    }
+    #image-part{
+        display: none;
+    }
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}

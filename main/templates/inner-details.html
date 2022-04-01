@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/inner-detail.css' %}">
+{% endblock %}
+{% block content %}
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-innerdetails-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-innerdetails-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
+    <div id="detail-main-image">
+        <img style="width: 100%;" src="{{parent_cat.image.url}}" alt="">       
+    </div>
+    <div id="details-cards" class="row">
+      {% for part in parts %}
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 detail-card">
+            <div class="card" >
+            <img src="{{part.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <a style="text-decoration: none;" href="{% url 'product:filtered-products' marka model parent_detail subparent_detail part.slug %}"><p class="card-text"><span>{{part.category_order}}</span> {{part.title}}</p></a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}

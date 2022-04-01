@@ -1,0 +1,5 @@
+.env
+venv
+pgdb/
+data.json
+dq.sqlite3

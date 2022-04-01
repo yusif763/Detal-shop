@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/login.css' %}">
+{% endblock %}
+{% block content %}
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-login-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-login-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
+    <h1 style="color: #ED1F24; text-align: center;" class="mt-5">Hesabınıza daxil olun</h1>
+    <div class="row login-main mb-5">
+        <div class="col-12 col-md-6" id="so-login">
+            <div id="login-social-part">
+                <h3 style="font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 30px;
+                line-height: 35px;
+                
+                color: #ED1F24;
+                text-align: center;">Bizi İzləyin</h3>
+                <div class="login-icons">
+                    <div>
+                        <a class="login-icon" href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                    <div>
+                        <a class="login-icon" href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                    </div>
+                    <div>
+                        <a class="login-icon" href="#"><i class="fab fa-google-plus fa-2x"></i></a>
+                    </div>
+                </div>
+                <h4 style="font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 21px;
+                /* identical to box height */
+                
+                
+                color: #ED1F24;
+                text-align:center">Hesabınız yoxdur?</h4>
+                <h4 style="font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 21px;
+                /* identical to box height */
+                
+                
+                color: #ED1F24;
+                text-align:center">Qeydiyyat</h4>
+            </div>
+        </div>
+        <div class="col-12 col-md-6" id="login-form-main">
+            <div class="login-part">
+                <h3 style="font-family: Roboto;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 26px;
+                line-height: 30px;
+                
+                color: #ED1F24;
+                text-align: center;">CarDent</h3>
+                <form action="" method="POST" enctype="multipart/form-data" id="login-form">
+                    {% csrf_token %}
+                {% for field in form %}
+                    {{field}}
+                {% endfor %}
+                    <button id="login-submit">Daxil ol</button>
+                    <h6 style="font-family: Roboto;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 16px;
+                    
+                    color: #959292;
+                    text-align:center;">Parolu unutmusuz?</h6>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+    {% endblock %}
+
+    {% block js %}
+        
+        {% if not user.is_authenticated %}
+            <script src="{% static 'js/login.js' %}"></script>
+        {% endif %}
+        
+    {% endblock %}
+    

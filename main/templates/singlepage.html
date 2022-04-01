@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/shops.css' %}">
+{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick/slick-theme.css"/>
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="your-class">
+        <div >your content1</div>
+        <div>your content2</div>
+        <div>your content3</div>
+    </div>
+
+
+
+      {% endblock %}
+
+      {% block js %}
+      <script src="{% static 'assets/js/singlepage.js' %}"></script>
+    
+      {% endblock %}

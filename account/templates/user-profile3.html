@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/user-profile2.css' %}">
+<link rel="stylesheet" href="{% static '/css/products.css' %}">
+{% endblock %}
+{% block content %}
+
+
+<section class="products container mb-5">
+    <div class="row mb-5" id="products">
+
+        
+    </div>
+</section>
+    
+
+
+    {% endblock %}
+
+    {% block js %}
+        {% ifequal user request.user %}
+            <script src="{% static 'js/activateproduct.js' %}"></script>
+        {% endifequal %}
+    {% endblock %}
+    

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/about.css' %}">
+{% endblock %}
+{% block content %}
+
+
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-about-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-about-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
+
+
+    <section class="container">
+        <div class="row mt-5">
+            <div class="col-12 col-sm-7 text-sm-start text-center">
+                <h1 class="mt-5">Cadent</h1>
+                <p class="ptag">layihesi olaraq Azerbaycanda ve dunya bazarinda avtomobiil hisselerinin satışını təmin etməkdir.Hal
+                    hazırda 200den çox mağazaya ev sahipliyi edirik</p>
+            </div>
+            <div class="col-12 col-sm-5">
+                <img class="w-100" src="{% static 'assets/images/Group 349.png' %}" alt="">
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}

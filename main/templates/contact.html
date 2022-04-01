@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/contact.css' %}">
+{% endblock %}
+{% block content %}
+
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-contact-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-contact-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
+    <section id="contact-section" class="container">
+        <div id="contact-main">
+            <div class="row row-div">
+                <div class="col-md-12 col-sm-12 col-12 col-lg-4 mt-4 mt-lg-0">
+                    <p class="contact-title">E-mail</p>
+                    <p class="contact-desc">info@hisse.az</p>
+                    <p class="contact-title">Telefon</p>
+                    <p class="contact-desc">+994 (50) 220 -23 -34</p>
+                    <p class="contact-title">Addres</p>
+                    <p class="contact-desc">Nerimanov rayonu</p>
+                </div>
+                <div class="col-md-12 col-sm-12 col-12 col-lg-8 text-start text-sm-center" id="contact-form">
+                    <img id="contact-img" src="{% static '/assets/images/image 12 (1).png'%}" alt="">
+                    <form id="contact-form-text" action="" method='POST'>
+                    {% csrf_token %}
+                    
+                        <h3 style="color: white;">Sualınız qalıbsa?</h3>
+                        <h5 style="color: white;">o zaman biz cavablayaq</h5>
+                        <p style="color: white;">Adınız</p>
+                        <input class="contact-input" type="" name="name" id="name">
+                        <p style="color: white;">Nömrəniz</p>
+                        <input class="contact-input" type="number" id='number' name='phone_number'>
+                        <button type='submit' id="contact-button">Bizimlə əlaqə saxlayın</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+
+    {% endblock %}
+
+    {% block js %}
+        <script src="{% static '/js/contact.js' %}"></script>
+    {% endblock %}

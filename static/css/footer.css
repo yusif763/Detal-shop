@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+
+#footer {
+    width: 100%;
+    background-color: #1B1B1B;
+    background-image: url("../assets/images/image-removebg-preview\ \(27\)\ 1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
+.container{
+    width: 70% !important;
+}
+
+#footer-main {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.footer-li {
+    color: white;
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}
+
+.footer-li a{
+    color: white;
+}

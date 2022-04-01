@@ -1,0 +1,158 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 70% !important;
+}
+body{
+    background-color: #E5E5E5 !important;
+}
+i{
+    color: #8F8F8F;
+}
+.location{
+    color: #8F8F8F;
+}
+.number{
+    color: #8F8F8F;
+}
+.brand-name{
+    color: #8F8F8F;
+}
+/* button{
+    background-color: #ED1F24;
+    height: 30px;
+    width: 90px;
+    border: 1px solid #ED1F24;
+    color: white;
+    border: 5px;
+} */
+.left{
+    text-align: right;
+}
+
+
+@media only screen and (max-width:993px){
+  .left {
+    margin-top: 2%;
+    text-align: left;
+  } 
+}
+.headd{
+    width: 100%;
+    height: 250px;
+    background-color: #ED1F24;
+}
+
+#foratag{
+    display: flex;
+    justify-content: end;
+}
+.atagfix{
+    width: 140px;
+    height: 60px;
+    font-size: 20px;
+    margin-right: 50px;
+    margin-top:20px;
+    text-decoration: none;
+    border:2px solid white;
+    padding: 15px;
+    color: white;
+    
+}
+.atagfix:hover{
+    color: white;
+}
+
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}
+
+
+
+
+
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+
+#reklam-banner-left-user-profile-page{
+    width: 15%;
+    height: 80vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-user-profile-page{
+    width: 15%;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+
+}
+
+@media only screen and (max-width: 768px){
+    #reklam-banner-left-user-profile-page{
+        width: 15%;
+        height: 40vh;
+        position: absolute;
+        
+    }
+    #reklam-banner-right-user-profile-page{
+        width: 15%;
+        height: 40vh;
+        position: absolute;
+        right: 0;
+    
+    }
+}

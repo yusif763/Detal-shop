@@ -1,0 +1,58 @@
+{% load static %}
+<footer id="footer">
+    <div id="footer-main">
+        <div class="row footer-upper-row p-0">
+            <div class="col-md-4 col-sm-4 p-0">
+                <ul>
+                    <li class="footer-li"><a href="{% url 'main:home' %}">Ana Səhifə</a></li>
+                    <li class="footer-li"><a href="{% url 'main:shops' %}">Mağazalar</a></li>
+                    <li class="footer-li"><a href="{% url 'main:about' %}">Haqqımızda</a></li>
+                    <li class="footer-li"><a href="{% url 'main:contact' %}">Bizimlə Əlaqə</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-sm-4 p-0">
+                <ul>
+                    <li class="footer-li"><a href="{% url 'product:products' %}">Elanlar</a></li>
+                    <li class="footer-li"><a href="{% url 'product:sale-products' %}">Endirimli elanlar</a></li>
+                    <li class="footer-li"><a href="{% url 'main:car-filter' %}">Maşınlar</a></li>
+                    <li class="footer-li"><a href="{% url 'main:searched' %}">Maşın axtar</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-sm-4 p-0">
+                <ul>
+                    {% if request.user.is_authenticated %}
+                    <li class="footer-li"><a href="{% url 'product:add-product' %}">Məhsul əlavə et</a></li>
+                    <li class="footer-li"><a href="{% url 'account:change-password' %}">Şifrəni dəyiş</a></li>
+                    <li class="footer-li"><a href="{% url 'account:self-profile' request.user.slug %}">Mənim hesabım</a></li>
+                    <li class="footer-li"><a href="{% url 'account:logout' %}?next=/main/">Çıxış</a></li>
+                    {% else %}
+                    <li class="footer-li"><a href="{% url 'product:products' %}">Məhsullar</a></li>
+                    <li class="footer-li"><a href="{% url 'account:forget-password' %}">Şifrəni unutdum</a></li>
+                    <li class="footer-li"><a href="{% url 'account:login' %}">Daxil ol</a></li>
+                    <li class="footer-li"><a href="{% url 'account:register' %}">Qeydiyyat</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+        </div>
+        <div class="row footer-down-row p-0">
+            <div class="col-md-4 col-sm-4 p-0">
+                <img style="width: 100%;" src=" {% static '/assets/images/logo png-03 copy.png' %}" alt="">
+            </div>
+            <div class="col-md-4 col-sm-4 p-0 d-flex justify-content-center pb-3">
+                <h5 class="d-flex align-items-center" style="height: 100%;color: white; ">© Bütün hüquqlar qorunur</h5>
+            </div>
+            <div class="col-md-4 col-sm-4 p-0 d-flex justify-content-center align-items-center">
+                <div>
+                    <a class="wishlist-icon" href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+                <div>
+                    <a class="wishlist-icon" href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                </div>
+                <div>
+                    <a class="wishlist-icon" href="#"><i class="fab fa-google-plus fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

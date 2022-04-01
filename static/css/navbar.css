@@ -1,0 +1,241 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+
+
+html, body{
+    height: 100%;
+}
+
+/* reklam section */
+
+/* #reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+} */
+
+
+
+#reklam-banner-left-side{
+    width: 15%;
+    height: 80vh;
+    position: absolute;
+    
+}
+
+#reklam-banner-left{
+    width: 100%;
+    height: 100%;
+}
+
+#reklam-banner-left-side-second{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+    top: 235%;
+}
+
+#reklam-banner-left-second{
+    width: 100%;
+    height: 100%;
+}
+#reklam-banner-right-side-second{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#reklam-banner-right-second{
+    width: 100%;
+    height: 100%;
+}
+
+#reklam-banner-right-side{
+    width: 15%;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+}
+
+#reklam-banner-right{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 
+@media only screen and (max-width: 768px){
+    #reklam-banner-left-side{
+        width: 10%;
+        height: 100%;
+        position: absolute;
+    }
+    #reklam-banner-right-side{
+        width: 10%;
+        height: 100%;
+    }
+    #reklam-banner-left-side-second{
+        width: 10%;
+        height: 200%;
+        position: absolute;
+        top: 135%;
+    }
+    #reklam-banner-right-side-second{
+        width: 10%;
+        height: 200%;
+        position: absolute;
+        top: 135%;
+    }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navbar-nav {
+    justify-content: space-around;
+}
+
+.wishlist-icon {
+    color: #ED1F24;
+}
+
+#navbar-section {
+    background-color: #E5E5E5;
+    width: 70%;
+}
+.responsive-wish{
+    display: none;
+}
+.navbar_item {
+    color: #000000;
+    text-decoration: none;
+}
+
+.navbar_item:hover {
+    color: #ED1F24;
+    text-decoration: none;
+}
+
+#nav-button {
+    background: #ED1F24;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: white;
+    width: 150%;
+    height: 30px;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+}
+
+
+
+@media only screen and (max-width: 992px) {
+    .no-wish{
+        display: none;
+    }
+    .responsive-wish{
+        display: block;
+    }
+    .navbar-nav{
+        text-align: center;
+    }
+    #nav-button{
+        width: 100%;
+    }
+    .nav-item{
+    border-bottom: 2px #ED1F24 solid;
+    margin: 20px;
+    }
+
+}
+
+
+@media only screen and (max-width: 768px) {   
+    .no-wish{
+        display: none;
+    }
+    .navbar-nav{
+        text-align: center;
+    }
+    #nav-button{
+        width: 100%;
+    }
+    .nav-item{
+    border-bottom: 2px #ED1F24 solid;
+    margin: 20px;
+    }
+    .navbar-res{
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    #navbar-section{
+        width: 100% !important;
+    }
+    .footer-li{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}

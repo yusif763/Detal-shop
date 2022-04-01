@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/wishlist.css' %}">
+{% endblock %}
+{% block content %}
+
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-wishlist-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-wishlist-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
+
+    <section class="wishes container mt-5">
+        <div class="row m-auto pl-2 pr-2 mt-5">
+
+        {% for item in wishes %}
+        {% csrf_token %}
+            <div class="col-12 col-sm-6 cart mb-4">
+                <div class="incart">
+                    <div class="img-div">
+                        <img src="{{item.product.main_image.url}}" alt="">
+                    </div>
+                    <div class="cart-text">
+                        <h2 class="title">{{item.product.title}}</h2>
+                        <span class="price">{{item.product.price}}</span><span class="valyuta ml-3">azn</span>
+                        <span class="sale-price"></span>
+                    </div>
+                    <i class="far fa-times x-button"></i>
+                    <span class='d-none'>{{item.product.id}}</span>
+                </div>
+            </div>
+        {% endfor %}
+
+            
+
+        </div>
+    </section>
+
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+
+
+    {% endblock %}
+
+    {% block js %}
+    <script src="{% static '/js/unwish.js' %}"></script>
+    {% endblock %}

@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/lastindex.css' %}">
+    <title>Detal Shop</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex row">
+            <i class="col-4 fa-solid fa-phone-volume"></i>
+            <h3 class=" col-6 phone-num">*4352</h3>
+          </a>
+          <div class="d-flex head-nav-right-part">
+            <div class="dropdown ">
+                <button class="btn btn-secondary dropdown-toggle lang-dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static '/assets/images/AZ.png' %}" alt="" style="vertical-align: text-top;">
+                    Azərbaycan dili
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <li><button class="dropdown-item" type="button">Action</button></li>
+                  <li><button class="dropdown-item" type="button">Another action</button></li>
+                  <li><button class="dropdown-item" type="button">Something else here</button></li>
+                </ul>
+                <button type="button" class="btn btn-primary btn-elan">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        Elan yerləşdir
+                    </a>
+                </button>
+              </div>
+          </div>
+        </div>
+      </nav>
+
+      <nav id="nav-secondary" class="container">
+          <div class="row">
+
+              <div class="nav-logo col-3 ">
+                  <img src="{% static '/assets/images/Group 233.png' %}" alt="">
+              </div>
+              <div class="col-7">
+                  <ul class="d-flex navbar-page-parts">
+                      <li>Magazalar</li>
+                      <li>VIP məhsullar</li>
+                      <li>Endirimli məhsullar</li>
+                      <li>Mağazalar</li>
+                      <li>Əlaqə</li>
+                  </ul>
+              </div>
+              <div class="col-2 navbar-icons">
+                <i class="fa-solid fa-cart-shopping fa-1x navbar-icon"></i>
+                <i class="fa-solid fa-heart fa-1x navbar-icon"></i>
+                <i class="fa-solid fa-circle-user fa-1x navbar-icon"></i>
+              </div>
+          </div>
+      </nav>
+
+    <div id="search-container" class="container">
+        <div class="row">
+            <div class="col-8">
+                <div id="carouselExampleIndicators" class="carousel slide col-12" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="{% static 'assets/images/unsplash_xe-e69j6-Ds.png' %}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{% static 'assets/images/unsplash_xe-e69j6-Ds.png' %}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{% static 'assets/images/unsplash_xe-e69j6-Ds.png' %}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{% static 'assets/images/unsplash_xe-e69j6-Ds.png' %}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{% static 'assets/images/unsplash_xe-e69j6-Ds.png' %}" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+    
+    
+                  <div class="col-12">
+    
+                  </div>
+            </div>
+    
+            <div class="col-4">
+                <div id="main-div-first-section">
+                    <div id="inner-div-first-section" class="container">
+                        <div class="row" id="first-section-first-row">
+                            {% csrf_token %}
+                            <div class="col-12">
+                                <div class="row first-section-inner-row">
+                                    <div class="col-md-5 search-input-main">
+                                        <label for="">Məhsulun adı</label>
+                                        <input id='search' class="search-input" placeholder="Məhsulun adı"
+                                            type="text">
+                                    </div>
+                                    <div class="col-md-5 search-input-main">
+                                        <label for="">BAN nömrə</label>
+                                        <input id='ban' class="search-input" placeholder="Ban nomre ile axtar" type="text">
+                                    </div>
+                                </div>
+                                <div class="row first-section-inner-row">
+                                    <div class="col-md-4 search-select">
+                                        <label for="">Marka</label>
+                                        <select name="Maşın markası" id="filter-mark" class="search-part-select">
+            
+            
+            
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 search-select">
+                                        <label for="">Model</label>
+                                        <select name="Maşın modeli" id="filter-model" class="search-part-select amil">
+            
+            
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 search-select">
+                                        <label for="">Avtomobilin ili</label>
+                                        <select name="Buraxılış ili" id="buraxilish-filter" class="search-part-select">
+                                            <option value="">Buraxılış ili</option>
+            
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 search-select">
+                                        <label for="">Şəhər</label>
+                                        <select name="Buraxılış ili" id="buraxilish-filter" class="search-part-select">
+                                            <option value="">Buraxılış ili</option>
+            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="col-md-3 col-12 axtarish" style="display: flex;align-items: flex-end;margin-bottom: 5%;">
+                                <button class="search-button">Axtar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="{% static '/js/wishlistapi.js' %}"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</body>
+</html>

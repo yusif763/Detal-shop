@@ -1,2 +1,1 @@
-# Detal-shop
-detal shop web site with python
+# detal_az

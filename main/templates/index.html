@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+{% block content %}
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+
+<section>
+    <div id="main-div-first-section">
+        <div id="inner-div-first-section" class="container">
+            <div class="row" id="first-section-first-row">
+                {% csrf_token %}
+                <div class="col-md-9 col-12">
+                    <div class="row first-section-inner-row">
+                        <div class="col-md-5 search-input-main">
+                            <input id='search' class="search-input" placeholder="Məhsulun adı"
+                                type="text">
+                        </div>
+                        <div class="col-md-5 search-input-main">
+                            <input id='ban' class="search-input" placeholder="Ban nomre ile axtar" type="text">
+                        </div>
+                    </div>
+                    <div class="row first-section-inner-row">
+                        <div class="col-md-4 search-select">
+                            <select name="Maşın markası" id="filter-mark" class="search-part-select">
+
+
+
+                            </select>
+                        </div>
+                        <div class="col-md-4 search-select">
+                            <select name="Maşın modeli" id="filter-model" class="search-part-select amil">
+
+
+                            </select>
+                        </div>
+                        <div class="col-md-4 search-select">
+                            <select name="Buraxılış ili" id="buraxilish-filter" class="search-part-select">
+                                <option value="">Buraxılış ili</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-12 axtarish" style="display: flex;align-items: flex-end;margin-bottom: 5%;">
+                    <button class="search-button">Axtar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section id="reklam-banner-left-side-main-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+    <div id="reklam-banner-left" class="mt-5">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+    {% endif %}
+    {% endfor %}
+</section>
+<section id="reklam-banner-right-side-main-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_right %}
+    <div id="reklam-banner-left" class="mt-5">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</section>
+
+
+
+
+<section class="container" style="margin-top: 5%;">
+    <div id="boxes">
+        {% for i in box_categories %}
+
+        {% if forloop.counter == 1 %}
+        <div id="first-box">
+            <div class="box-title" style="display: flex;
+                        justify-content: center;
+                        align-items: center;color: white;">{{i.title}}</div>
+            <div class="box_img d-flex align-items-center">
+                <img class="" src="{{i.image.url}}" style="width: 100%;" alt="">
+            </div>
+        </div>
+        {% endif %}
+        {% if forloop.counter == 2%}
+        <div id="second-box">
+            <div class="box-title" style="display: flex;
+                        justify-content: center;
+                        align-items: center;color: white;">{{i.title}}</div>
+            <div class="box_img d-flex align-items-center">
+                <img class="" src="{{i.image.url}}" style="width: 100%;" alt="">
+            </div>
+        </div>
+        {% endif %}
+        {% if forloop.counter == 3 %}
+        <div id="third-box-main">
+            <div class="box_img">
+                <img class="" class="d-flex align-items-center" src="{{i.image.url}}" style="width: 100%;" alt=" ">
+            </div>
+            <div class="box-title" style="display: flex;
+                        justify-content: center;
+                        align-items: center;text-align: center;color: white; ">{{i.title}}</div>
+        </div>
+        {% endif%}
+        {% if forloop.counter == 4 %}
+        <div id="fourth-box">
+            <div class="box-title" style="display: flex;
+                    justify-content: center;
+                    align-items: center;color: white;">{{i.title}}</div>
+            <div class="box_img d-flex align-items-center">
+                <img class="" src="{{i.image.url}}" style="width: 100%;" alt="">
+            </div>
+        </div>
+        {% endif %}
+        {% if forloop.counter == 5 %}
+        <div id="fifth-box">
+            <div class="box-title" style="display: flex;
+                    justify-content: center;
+                    align-items: center;color: white;">{{i.title}}</div>
+            <div class="box_img d-flex align-items-center">
+                <img class="" src="{{i.image.url}}" style="width: 100%;" alt="">
+            </div>
+        </div>
+        {% endif %}
+        {% if forloop.counter == 6 %}
+        <div id="sixth-box">
+            <div class="box-title" style="display: flex;
+                    justify-content: center;
+                    align-items: center;color: white;">{{i.title}}</div>
+            <div class="box_img d-flex align-items-center">
+                <img class="" src="{{i.image.url}}" style="width: 100%;" alt="">
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+<h1 id="vip-title">VIP Elanlar</h1>
+<section class="products container mb-5">
+    <div class="row mb-5">
+        {% for i in vip %}
+        <a style="text-decoration: none; color: black;" href="{% url 'product:single-product' i.slug%}"></a>
+        <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+
+            <div class="incard">
+                {% csrf_token %}
+                {% if i.title in wishes %}
+                <i class="fas fa-heart unwish"></i>
+                {% else %}
+                <i class="fas fa-heart wish"></i>
+                {%endif%}
+                <span class='d-none foridinput'>{{i.id}}</span>
+                <span class='d-none foridinput'>{{request.user.id}}</span>
+
+                {% if i.is_vip %}
+                <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
+                {% endif %}
+
+
+
+                <img style="width:100%;" src="{{i.main_image.url}}" alt="">
+
+                <div class="d-flex">
+                    <span>satıcı:</span>
+                    <a style="color: red; text-decoration: none;"
+                        href="{% url 'account:user-profile' i.user_id.slug  %}"><span
+                            style="color: red;">{{i.user_id.first_name}}</span></a>
+                </div>
+                <p>{{i.title}}</p>
+                <button>{{i.price}} AZN</button>
+            </div>
+
+        </div>
+        </a>
+
+        {% endfor %}
+
+    </div>
+</section>
+<h1 id="markalar-title">Maşın markaları</h1>
+<section class="container" id="markalar-section">
+    <div id="markalar-main-div">
+        <div class="row" id="markalar-cards">
+            {% for marka in markalar %}
+            <div class="col-md-4  col-lg-3 col-sm-4 col-6 marka-card">
+                <div class="markalar-card">
+                    <div style="height: 100%;" class="markalar-img">
+                        <img style="width:100%; height: 100%;" src="{{marka.image.url}}" alt="">
+                    </div>
+                    <div class="markalar-texts">
+                        <h6 class="text-center card-title">{{marka.title}}</h6>
+                        <a class="card-url" href="{% url 'main:brands' marka.slug %}"><button
+                                class="card-button">Hissələri</button></a>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h1 id="hisseler-title">Ən Son Məhsullar</h1>
+    <div class="row mb-5">
+        {% for i in products %}
+        <!-- <a style="text-decoration: none; color: black;" href="{% url 'product:single-product' i.slug%}"></a> -->
+        <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+
+            <div class="incard">
+                {% csrf_token %}
+                {% if i.title in wishes %}
+                <i class="fas fa-heart unwish"></i>
+                {% else %}
+                <i class="fas fa-heart wish"></i>
+                {%endif%}
+                <span class='d-none foridinput'>{{i.id}}</span>
+                <span class='d-none foridinput'>{{request.user.id}}</span>
+
+
+                <a style="text-align: center;" href="{% url 'product:single-product' i.slug %}"><img
+                        src="{{i.main_image.url}}" alt=""></a>
+
+                <div class="d-flex">
+                    <span>satıcı:</span>
+                    <a style="color: red; text-decoration: none;"
+                        href="{% url 'account:user-profile' i.user_id.slug  %}"><span
+                            style="color: red;">{{i.user_id.first_name}}</span></a>
+                </div>
+                <p>{{i.title}}</p>
+                <a href="{% url 'product:single-product' i.slug %}" style="width: 80%; text-align: center;">
+                    <button style="margin: 0 auto;">{{i.price}} AZN</button>
+                </a>
+            </div>
+
+        </div>
+        </a>
+
+        {% endfor %}
+
+    </div>
+</section>
+</section>
+
+
+
+{% for reklam in reklamlar %}
+{% if reklam.is_bottom %}
+<section id="reklam-banner-bottom-section" class="mt-5">
+    <div id="reklam-banner-bottom">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block js %}
+<script src="{% static '/js/main.js' %}"></script>
+<script src="{% static '/js/unwish.js' %}"></script>
+{% endblock %}

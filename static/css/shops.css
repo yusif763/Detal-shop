@@ -1,0 +1,180 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+#reklam-banner-left-side-shops-page{
+    width: 15%;
+    height: 80vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-shops-page{
+    width: 15%;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 70% !important;
+}
+body{
+    background-color: #E5E5E5 !important;
+}
+.navbar-nav {
+    justify-content: space-around;
+}
+.wishlist-icon {
+    color: #ED1F24;
+}
+#navbar-section {
+    background-color: #E5E5E5;
+}
+.navbar_item {
+    color: #000000;
+    text-decoration: none;
+}
+.navbar_item:hover {
+    color: #ED1F24;
+    text-decoration: none;
+}
+#nav-button {
+    background: #ED1F24;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100px;
+    height: 30px;
+}
+.header-img{
+    width: 400px;
+    height: 350px;
+}
+.header-text{
+    width: 100%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 43px;
+    line-height: 50px;
+
+    color: #ED1F24;
+}
+.cart-title{
+    background-color: #ED1F24;
+    pad: 0 30px 0 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 21px;
+height: 50px;
+width: 100%;
+margin: auto;
+
+
+color: #FFFFFF;
+}
+.cart-title h3{
+    width: 1000%;
+}
+.cart-img{
+    width: 100%;
+}
+.cart-shop{
+    border-radius: 25px;
+}
+
+
+
+
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-link span{
+    color: white;
+}
+.page-link{
+    background-color: #ED1F24;
+    color: white;
+}
+.products-header-2{
+    text-align: center;
+    
+    width: 800px;
+    margin: auto;
+}
+.page-link:hover{
+    background-color: white;
+    color: red;
+}
+.prev:hover{
+    background-color: #ED1F24;
+    color: white;
+}
+.nextt:hover{
+    background-color: #ED1F24;
+    color: white;
+}
+
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}

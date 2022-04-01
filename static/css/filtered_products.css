@@ -1,0 +1,360 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+#reklam-banner-left-side-product-page{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+}
+#reklam-banner-right-side-product-page{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 70% !important;
+}
+body{
+    background-color: #E5E5E5;
+}
+.navbar-nav {
+    justify-content: space-around;
+}
+.wishlist-icon {
+    color: #ED1F24;
+}
+#navbar-section {
+    background-color: #E5E5E5;
+}
+.navbar_item {
+    color: #000000;
+    text-decoration: none;
+}
+.navbar_item:hover {
+    color: #ED1F24;
+    text-decoration: none;
+}
+#nav-button {
+    background: #ED1F24;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100px;
+    height: 30px;
+}
+#main-div-first-section {
+    background-image: url('../assets/images/image\ 21.png');
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+#inner-div-first-section {
+    height: 200px;
+    background-color: white;
+    background: #FFFFFF;
+    border-radius: 22px;
+}
+
+#first-section-first-row {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.search-input-main {
+    border-left: 3px solid #ED1F24;
+}
+
+ ::placeholder {
+    color: black;
+}
+
+.search-input {
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.search-button {
+    width: 100%;
+    height: 51px;
+    background: #ED1F24;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+
+.search-part-select {
+    border: none;
+    border-left: 3px solid #ED1F24;
+    background-color: transparent;
+    width: 80%;
+    height: 100%;
+    outline: none;
+}
+
+.col-4 {
+    padding: 0;
+}
+
+.first-section-inner-row {
+    height: 60%;
+    margin-top: 20px;
+}
+.cardent{ 
+
+    height: 622px;
+    background: rgba(14, 110, 199, 0.74);
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+}
+.cardent p{
+    width: 250px;
+    height: 19px;
+    
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+}
+.cardent h3{
+    width: 379px;
+height: 28px;
+
+
+font-family: 'Roboto' sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+
+color: #FFFFFF;
+}
+.cardent h1{
+    width: 214px;
+    height: 70px;
+    
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 70px;
+    
+    color: #ED1F24;
+}
+.cardent button{
+  
+width: 150px;
+height: 53px;
+border: none;
+color: #FFFFFF;
+background: #ED1F24;
+border-radius: 12px;
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 21px;
+/* identical to box height */
+
+text-align: center;
+
+}
+.products-header{
+    text-align: center;
+    
+    width: 350px;
+    margin: auto;
+}
+.hisseler{
+    border-bottom: 2px solid #ED1F24;;
+   
+}
+.card-item{
+    height: 360px;
+    margin-bottom: 30px;
+}
+.incard{
+    background: #FFFFFF;
+    padding: 0 45px 0 45px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    justify-content: center;
+    
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 12px;
+}
+
+.incard img{
+    width: 80%;
+    height: 180px;
+}
+.incard button{
+    background: #ED1F24;
+border-radius: 8px;
+border: none;
+color: #FFFFFF;
+height: 40px;
+width: 100%;
+}
+
+.fa-heart{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    color: #ED1F24;
+    font-size: 25px;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-link span{
+    color: white;
+}
+.page-link{
+    background-color: #ED1F24;
+    color: white;
+}
+.products-header-2{
+    text-align: center;
+    
+    width: 800px;
+    margin: auto;
+}
+.page-link:hover{
+    background-color: white;
+    color: red;
+}
+
+.customer{
+    position: relative;
+}
+.customer-photo{ 
+    position: absolute;
+    top: 53.3%;
+    right: 25%;
+    margin-left: 40px;
+}
+.customer-text{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+}
+#footer {
+    width: 100%;
+    height: 400px;
+    background-color: #1B1B1B;
+    background-image: url("../assets/images/image-removebg-preview\ \(27\)\ 1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
+
+#footer-main {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.footer-li {
+    color: white;
+}
+.prev:hover{
+    background-color: #ED1F24;
+    color: white;
+}
+.nextt:hover{
+    background-color: #ED1F24;
+    color: white;
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}

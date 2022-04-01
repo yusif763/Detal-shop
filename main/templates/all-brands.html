@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/all-brands.css' %}">
+{% endblock %}
+{% block content %}
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-allbrands-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-allbrands-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+    <section class="header-body">
+        <div id="header-main">
+            <div class="header-info">
+                <div><h2 class="header-title">Axtardığınız bütün maşın markaları bizdədir</h2></div>
+                <div><img src="{% static '/assets/images/Line 7.png' %}" alt=""></div>
+                <div><p>Tezliklə bütün maşın hissələri bizim addressdə</p></div>
+            </div>
+            <div class="header-image">
+                <img style="width: 100%;" src="{% static '/assets/images/Group 297.png' %}" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="all-cars-search-main">
+            <h2 class="all-cars-title">Bütün maşınlar</h2>
+            <div class="all-cars-search row">
+                <div class="cars-search col-12 col-lg-9 col-md-9 col-sm-9">
+                    <input class="cars-search-input" type="text" placeholder="  Axtardığınız maşının adını qeyd edin">
+                </div>
+                    <button class="cars-search-button col-12 col-lg-3 col-md-3 col-sm-3">Axtar</button>
+            </div>
+        </div>
+
+        <div class="row all-cars">
+            {% for marka in markalar%}
+            <div class="col-12 col-lg-3 col-md-4 col-sm-6 all-cars-cards">
+                <div class="all-cars-card">
+                    <div class="all-cars-card-img" style="height: 100px;">
+                        <a href="{% url 'main:brands' marka.slug %}"> <img src="{{marka.image.url}}" style="width:100%" alt=""></a>
+                    </div>
+                    <h6 class="card-title">{{marka.title}}</h6>
+                    <a class="card-url" href="{% url 'main:brands' marka.slug %}"><button class="card-button">Hissələri</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <nav aria-label="Page navigation example">
+          {% if is_paginated %}
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{page_obj.previous_page_number}}"
+                >&laquo;</a
+              >
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" href="#">&laquo;</a>
+            </li>
+            {% endif %} {% for i in paginator.page_range %} {% if page_obj.number == i %}
+            <li class="page-item"><a class="page-link active bg-light text-danger">{{ i }}</a></li>
+            {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
+            {% endif %} {% endfor %} {% if page_obj.has_next %}
+            <li class="page-item">
+              <a href="?page={{page_obj.next_page_number}}" class="page-link"
+                >&raquo;</a
+              >
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link">&raquo;</a>
+            </li>
+            {% endif %}
+          </ul>
+          {% endif %}
+        </nav>
+    </section>
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}

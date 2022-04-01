@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/brands.css' %}">
+{% endblock %}
+{% block content %}
+
+    <div class="brand-title">
+        <h1>{{marka.title}}</h1>
+    </div>
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-brand-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-brand-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
+    <div class="car-brands">
+        {% for model in modeller %}
+        {% if not model.parent_modell %}
+        <div>
+            <h3>{{model.title}}</h3>
+            {% for submodel in model.sub_models.all %}
+            <a href="{% url 'main:car-detail' model.slug submodel.slug %}">
+                <p>{{submodel.title}}</p>
+            </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}

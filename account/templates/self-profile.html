@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/self-profile.css' %}">
+{% endblock %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-self-profile-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-self-profile-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+ <section class="my_container mt-5">
+
+        <div class="icons">
+            <div class="icon mb-sm-5 mb-md-none">
+                <div class="img">
+                    <img src="{% static '/assets/images/resume 1.png'%}" alt="">
+                </div>
+                <div class="text">
+                    <a style="border: none; text-decoration:none; color:black;" href="" class="mr-5">Redakte et</a>
+                </div>
+            </div>
+            <div class="icon mb-sm-5 mb-md-none">
+                <div class="img">
+                    <img src="{% static '/assets/images/open-box 1.png'%}" alt="">
+                </div>
+                <div class="text">
+                    <a style="border: none; text-decoration:none; color:black;" href="{% url 'account:user-profile' request.user.slug %}" class="mr-5">Hesabim</a>
+                </div>
+            </div>
+            {% ifequal user.is_market False %}
+            <div class="icon mb-sm-5 mb-md-none">
+                <div class="img">
+                    <img src="{% static '/assets/images/open-box 1.png'%}" alt="">
+                </div>
+                <div class="text">
+                    <a style="border: none; text-decoration:none; color:black;" href="{% url 'account:user-profile2' request.user.slug %}" class="mr-5">Vaxtı keçmiş məhsullar</a>
+                </div>
+            </div>
+            {% endifequal %}
+            <div class="icon mb-sm-5 mb-md-none">
+                <div class="img">
+                    <img src="{% static '/assets/images/logout 1.png'%}" alt="">
+                </div>
+                <div class="text">
+                    <a style="border: none; text-decoration:none; color:black;" href="{% url 'account:logout' %}?next=/main/" class="mr-5">cixis</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="for-form mb-5">
+            <form action="" class="update-profile" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            
+                <input placeholder="Ad Soyad" name='first_name' value='{{user.first_name}}' type="text">
+                <input placeholder="e-mail" name='email'  value='{{user.email}}' type="email">
+                <input placeholder="nomre" name='phone'  value='{{user.phone}}' type="number">
+                {% if request.user.is_market %}
+                <input placeholder="address" name='adress'  value='{{user.adress}}' type="text">
+
+                {% endif %}
+                {% comment %} <input class="mb-4" placeholder="passwrod" type="password"> {% endcomment %}
+
+                <div class="buttons mt-5">
+                    {% comment %} <button class="legv mb-3 mb-md-none">
+                        <a href="">legv et</a>
+                    </button> {% endcomment %}
+                    <button class="yadda-saxla mb-3   mb-md-none" type="submit">
+                        Yadda saxla
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </section>
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+{% else %}
+
+{% endif %}
+
+
+   
+
+
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}
+    

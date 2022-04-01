@@ -1,0 +1,241 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/products.css' %}">
+{% endblock %}
+{% block content %}
+
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+    
+<section>
+    <div id="main-div-first-section">
+        <div id="inner-div-first-section" class="container">
+            <div class="row" id="first-section-first-row" style="margin: auto;">
+                <div class="col-md-9 col-12">
+                    {% csrf_token %}
+                    <div class="row first-section-inner-row">
+                        <div class="col-md-5 mt-2 search-input-main">
+                            <input id='search' class="search-input" placeholder="Axtardiginiz mehsulun adini qeyd edin" type="text">
+                        </div>
+                        <div class="col-md-5 mt-2 search-input-main">
+                            <input id='ban' class="search-input" placeholder="Ban nomre ile axtar" type="text">
+                        </div>
+                    </div>
+                    <div class="row first-section-inner-row">
+                        <div class="col-md-4 search-select mt-2 " style="padding-left: 0;">
+                            <select name="Maşın markası" id="filter-mark" class="search-part-select">
+                                
+                                
+                                
+                            </select>
+                        </div>
+                        <div class="col-md-4 search-select mt-2" style="padding-left: 0;">
+                            <select name="Maşın modeli" id="filter-model" class="search-part-select amil">
+                                
+                                
+                            </select>
+                        </div>
+                        <div class="col-md-4 search-select mt-2" style="padding-left: 0;">
+                            <select name="Buraxılış ili" id="buraxilish-filter" class="search-part-select">
+                                <option value="">Buraxılış ili</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-12 axtarish" style="display: flex;align-items: flex-end;margin-bottom: 5%;">
+                    <button class="search-button">Axtar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section id="reklam-banner-left-side-product-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-product-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
+    <div class="cardent container row m-auto mt-5">
+        <div class="col-12 col-md-5 ml-5">
+            <div class="inner-cardent">
+                <p class="w-100 mb-md-3 mb-sm-5">Orginal hissələr yalnız bu addresdə </p>
+                <div class="d-flex mb-md-3 mb-sm-5 mt-5">
+                    <h1 style="width: 100px;" class="mb-2">Car</h1>
+                    <h1 style="color: white;" class="">dent</h1>
+                </div>
+
+                <h3 class="w-100 mb-md-3 mb-4">Axtardığınızı bizim addressdə tapın</h3>
+                <button class="sm-mt-3 mt-5">Indi Al</button>
+            </div>
+        </div>
+        <div class="col-12 col-md-7">
+            <img class="cardent-img" src="{% static '/assets/images/Group 342.png' %}" alt="">
+        </div>
+    </div>
+
+    <div class="products-header mt-5 mb-5">
+        <div style="width: 50%; margin:auto;"><h1 class="text-center mb-4 hisseler">Hissələr</h1></div>
+        
+        <h1 class="text-center">Ən son məhsullar</h1>
+    </div>
+    <section class="products container mb-5">
+        <div class="row mb-5">
+            {% for i in products %}
+            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                
+                <div class="incard">
+                    {% csrf_token %}
+                    {% if i.title in wishes %}
+                    <i class="fas fa-heart unwish"></i>
+                    {% else %}
+                    <i class="fas fa-heart wish"></i>
+                    {%endif%}
+                    <span class='d-none foridinput'>{{i.id}}</span>
+                    <span class='d-none foridinput'>{{request.user.id}}</span> 
+                   
+                    
+
+                    
+                    <a class="img-a" href="{% url 'product:single-product' i.slug %}">
+                        <img src="{{i.main_image.url}}" alt="">
+                    </a>
+                    <div class="d-flex">
+                        <span>satıcı:</span>
+                        <a href="{% url 'account:user-profile' i.user_id.slug %}">{{i.user_id.first_name}}</a>
+                    </div>
+                    <p>{{i.title}}</p>
+                    
+                    <a href="{% url 'product:single-product' i.slug %}" style="width: 80%; text-align: center;">
+                        <button style="margin: 0 auto;">{{i.price}} AZN</button>
+                    </a>
+                    <div class="activate-button">
+    
+                    </div>
+                </div>
+            
+            </div>
+            {% endfor %}
+            
+        </div>
+
+          <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27 d-flex align-items-center justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <a class="page-item prev"
+                        href="?page={{ page_obj.previous_page_number }}{% if request.GET.marka %}&marka={{ request.GET.marka }}{% endif %}{% if request.GET.modell %}&modell={{ request.GET.modell }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.ban_nomresi %}&ban_nomresi={{ request.GET.ban_nomresi }}{% endif %}">
+                        
+                        
+                    </a>
+                    {% endif %}
+                    {% if page_range|length > 1 %}
+                    <div class="page-numbers">
+                        {% for page_number in page_range %}
+                        {% if page_number == page_obj.number %}
+                        <a class="active act-num page-item mr-2" style="background-color: white !important;
+                        color: red;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;">
+                            <span>{{ page_number }}</span>
+                        </a>
+                        {% else %}
+                        <a class="page page-item mr-2" href="?page={{ page_number }}{% if request.GET.marka %}&marka={{ request.GET.marka }}{% endif %}{% if request.GET.modell %}&modell={{ request.GET.modell }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.ban_nomresi %}&ban_nomresi={{ request.GET.ban_nomresi }}{% endif %}">
+                            <span>{{ page_number }}</span>
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    {% if page_obj.has_next %}
+                    <a class="page-link ml-2"
+                        href="?page={{ page_obj.next_page_number }}{% if request.GET.marka %}&marka={{ request.GET.marka }}{% endif %}{% if request.GET.modell_id %}&modell_id={{ request.GET.modell_id }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.ban_nomresi %}&ban_nomresi={{ request.GET.ban_nomresi }}{% endif %}">
+                       
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="products-header-2 mt-5 mb-5 d-none d-xl-block">
+        <div style="width: 30%; margin:auto;"><h1 class="text-center mb-4 hisseler">Feedbacklər</h1></div>
+        
+        <h1 style="white-space: nowrap;" class="text-center">Müştərilərimiz hər zaman bizdən razı qalırlar </h1>
+    </div>
+
+    <div class="row container m-auto mb-5">
+        <div class="col-6 customer  d-none d-xl-block">
+            <p class="customer-text">Mağazalar hər zaman orginal məhsullar satır</p>
+            <img src="{% static '/assets/images/Group 345.png' %}" alt="">
+            <img class="customer-photo" src="{% static '/assets/images/image 35.png' %}" alt="">
+        </div>
+        <div class="col-6 customer  d-none d-xl-block">
+            <p class="customer-text">Mağazalar hər zaman orginal məhsullar satır</p>
+            <img class="ml-5" src="{% static '/assets/images/Group 344.png' %}" alt="">
+            <img class="customer-photo" src="{% static '/assets/images/image 35.png' %}" alt="">
+        </div>
+    </div>
+
+
+
+
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+
+    
+
+    {% endblock %}
+
+    {% block js %}
+    <script src="{% static '/js/main.js' %}"></script>
+    <script src="{% static '/js/wishlistapi.js' %}"></script>
+    <script src="{% static '/js/unwish.js' %}"></script>
+
+    {% endblock %}

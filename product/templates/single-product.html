@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/singlepage.css' %}">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+/>
+{% endblock %}
+{% block content %}
+
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+<section id="reklam-banner-left-side-singleproduct-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-singleproduct-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+<div class="product-carousel mt-5">
+    {%for i in product.product_image.all %}
+    {% if forloop.counter == 1 %}
+    <a
+      data-fancybox="gallery"
+      data-src="{{i.image.url}}" 
+      style="width: 50%;"
+    >
+      <img  class="img-cr" src="{{i.image.url}}" />
+    </a>
+    {% endif %}
+    {% if forloop.counter > 1 %}
+    <a data-fancybox="gallery" data-src="{{i.image.url}}">
+
+    </a>
+    {% endif %}
+    {% endfor %}
+
+
+    <div class="product-information-div">
+        <div class="product-user-information">
+            <button class="product-price">{{product.price}}<span style="font-size: 12px;">AZN</span></button>
+            <div class="product-user-number">
+                {% if request.user.is_authenticated %}
+                <ul style="width: 100%;height: 100%; margin: 0;">
+                    <li style="margin: 2%;width: 100%;height: 100%;"><a href="tel:{{user.phone}}" class="user-a">
+                        <i class="fas fa-phone-alt"></i>
+                        <span id="">{{user.phone}}</span>
+                        </a>
+                    </li>
+                </ul>
+                {% else %}
+                <ul style="width: 100%;height: 100%; margin: 0;">
+                    <li style="margin: 2%;width: 100%;height: 100%;"><a href="{% url 'account:login' %}" class="user-a">
+                        <i class="fas fa-phone-alt"></i>
+                        <span id="phone-number">+99455-556-55-55</span>
+                    </a>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            {% if request.user.is_authenticated and user == request.user %}
+            <a href="{% url 'product:update-product' product.slug %}">Elanı düzəlt</a>
+            {% endif %}
+            <p>Məhsulun adı: <b>{{product.title}}</b></p>
+            <p>Məhsulun markası: <b>{{product.marka_id}}</b></p>
+            <p>Məhsulun modeli: <b>{{product.modell_id}}</b></p>
+
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="product-user-information col-6">
+            <p>Elanın sahibi: <a href="{% url 'account:user-profile' user.slug %}">{{user.username}}</a></p>
+        </div>
+        <div class="watch-count col-6">
+            <h6>Elanın baxış sayı: {{product.watch_count}}</h6>
+        </div>
+        
+    </div>
+
+</div>
+
+
+
+
+{% for reklam in reklamlar %}
+{% if reklam.is_bottom %}
+<section id="reklam-banner-bottom-section" class="mt-5">
+    <div id="reklam-banner-bottom">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+    {% endblock %}
+
+    {% block js %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script src="{% static '/js/single-product.js' %}"></script>
+    {% endblock %}
+    

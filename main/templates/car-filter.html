@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/car-filter.css' %}">
+{% endblock %}
+{% block content %}
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-carfilter-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-carfilter-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+    <div class="arrows-div row m-auto container">
+        <div class="col-md-4 m-auto">
+            <div class="btnn-div">
+                <button class="buttons">on hisse</button>
+            </div>
+            <div class="img-arr1 d-none d-md-block">
+                <img src="{% static '/assets/images/Arrow 1.png'%}" alt="">
+            </div>
+        </div>
+        <div class="col-md-4 m-auto">
+            <div class="btnn-div">
+                <button class="buttons">on hisse</button>
+            </div>
+            <div class="img-arr2 d-none d-md-block">
+                <img src="{% static '/assets/images/Arrow 2.png'%}" alt="">
+            </div>
+        </div>
+        <div class="col-md-4 m-auto">
+            <div class="btnn-div">
+
+                <button class="buttons">on hisse</button>
+            </div>
+            <div class="img-arr3 d-none d-md-block">
+                <img src="{% static '/assets/images/Arrow 3.png'%}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="car-img w-100">
+        <img class="w-100" src="{% static '/assets/images/image-removebg-preview (3) 10.png'%}" alt="">
+    </div>
+
+
+    <div class="arrows-div row m-auto container">
+        <div class="col-md-4 m-auto">
+
+        </div>
+        <div class="col-4 m-auto">
+            <div class="img-arr2 d-none d-md-block">
+                <img class="" src="{% static '/assets/images/Arrow 4.png'%}" alt="">
+            </div>
+            <div class="btnn-div">
+                <button class="buttons">on hisse</button>
+            </div>
+        </div>
+        <div class="col-4 m-auto">
+
+        </div>
+    </div>
+
+
+
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}

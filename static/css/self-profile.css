@@ -1,0 +1,195 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+
+
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+#reklam-banner-left-side-self-profile-page{
+    width: 15%;
+    height: 60vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-self-profile-page{
+    width: 15%;
+    height: 60vh;
+    position: absolute;
+    right: 0;
+
+}
+
+@media only screen and (max-width: 768px){
+    #reklam-banner-left-side-self-profile-page{
+        width: 15%;
+        height: 30vh;
+        position: absolute;
+        
+    }
+    #reklam-banner-right-side-self-profile-page{
+        width: 15%;
+        height: 30vh;
+        position: absolute;
+        right: 0;
+    
+    }
+}
+
+
+
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #E5E5E5;
+}
+.container{
+    width: 70% !important;
+}
+.my_container{
+    width: 60%;
+    margin:auto;
+}
+
+.icons{
+    display: flex;
+}
+
+.icon{
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.for-form{
+    background-color: white;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+
+.update-profile{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.update-profile input{
+    background-color: #EEEEEE;
+    margin-top: 20px;
+    width: 60%;
+    height: 50px;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+}
+.update-profile input:focus{
+    border-color: 1px solid #ED1F24 !important;
+}
+.buttons{
+    width: 60%;
+    display: flex;
+    justify-content: space-around
+}
+.legv{
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #dc3545;
+}
+.legv a{
+    text-decoration: none;
+    color: #ED1F24;
+}
+.buttons button {
+    width: 40%;
+    height: 50px;
+}
+.yadda-saxla{
+    border-radius: 5px;
+    border: 1px solid #dc3545;
+    background-color: #ED1F24 ;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .icons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .icon{
+        width: 100%;
+    }
+    .buttons{
+        flex-direction: column;
+    }
+    .buttons button{
+        width: 100%;
+    }
+    .icon {
+        margin-top: 15%;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+  }
+  .update-profile input {
+    background-color: #EEEEEE;
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+}
+  }
+
+
+  a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}

@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/user-profile2.css' %}">
+<link rel="stylesheet" href="{% static '/css/products.css' %}">
+<style>
+    .vip{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        color: grey;
+        width: 30px !important;
+        height: 30px !important;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-user-profile-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-user-profile-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
+
+
+{% if user.is_market %}
+
+<header class="head row m-0 container m-auto">
+    <div class="col-md-6 col-12 p-0">
+        <div class="row ">
+            <div class="img col-6">
+                <img src="{{user.image.url}}" alt="" style="width: 100%;">
+            </div>
+            <div class="desc col-6">
+                <div class="d-flex flex-column">
+
+                    <span class="brand-name">{{user}}</span>
+                    <div class="locate">
+                        <span><i class="fas fa-map-marker-alt"></i></span>
+                        <span class="location">{{user.adress}}</span>
+                    </div>
+                    <div class="phone">
+                        <span><i class="fas fa-phone"></i></span>
+                        <span class="number">{{user.phone}}</span>
+                    </div>
+                    <div id="market-star" class="stars d-flex">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% ifnotequal user request.user %}
+        
+    
+    <div class="col-md-6 col-12 p-0 left">
+        <form class="left mr-4" action="rating">
+            <div id="rate-stars" class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                
+            </div>
+            <div class="button">
+                <button id="rate-button" type="button" disabled data-rating="1">
+                    reyting ver
+                </button>
+            </div>
+            
+        </form>
+    </div>
+    {% endifnotequal %}
+</header>
+<section class="products container mt-5 mb-5">
+    <div class="row mb-5">
+        {% if request.user.is_authenticated and user == request.user %}
+                <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                    <a href="{% url 'product:add-product' %}" class="incard">
+                        <img style="width: 85%" src="{% static '/assets/images/Group 264.png' %}" alt="">
+                    </a>
+                </div>
+                {% endif %}
+        {% for i in products %}
+        <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+            <div class="incard">
+                <i class="fas fa-heart"></i>
+                {% if i.is_vip %}
+                        <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
+                    {% endif %}
+                <a class="img-a" href="{% url 'product:single-product' i.slug %}">
+                    <img style="width: 100%; height: 100%;" src="{{i.main_image.url}}" alt="">
+                </a>
+                <div class="d-flex">
+                    <span>satici:</span>
+                    <a href="{% url 'account:user-profile' user.slug %}">{{i.user_id.first_name}}</a>
+                </div>
+                <p>{{i.title}}</p>
+                
+                <a href="{% url 'product:single-product' i.slug %}" style="width: 80%; text-align: center;">
+                    <button style="margin: 0 auto;">{{i.price}} AZN</button>
+                </a>
+                <div class="activate-button">
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </section>
+
+
+        {% else %}
+        
+        <header class="headd  m-0 m-auto">
+            
+            
+            {% if request.user.is_authenticated and user == request.user %}
+            <div id='foratag'>
+                
+                <a class='atagfix' style="text-decoration:none; color:white;"
+                href="{% url 'account:self-profile' request.user.slug %}">redakte et</a>
+            </div>
+            
+            {% endif %}
+            
+        </header>
+        <section class="products container mb-5 mt-5">
+            <div class="row mb-5">
+                {% if request.user.is_authenticated and user == request.user %}
+                <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                    <a href="{% url 'product:add-product' %}" class="incard">
+                        <img style="width: 85%" src="{% static '/assets/images/Group 264.png' %}" alt="">
+                    </a>
+                </div>
+                {% endif %}
+                
+                {% for i in products %}
+                <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                    <div class="incard">
+                        <i class="fas fa-heart"></i>
+                        {% if i.is_vip %}
+                        <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
+                        {% endif %}
+                        
+                        <a class="img-a" href="{% url 'product:single-product' i.slug %}">
+                            <img style="width: 100%; height: 100%;" src="{{i.main_image.url}}" alt="">
+                        </a>
+                        <div class="d-flex">
+                            <span>satici:</span>
+                            <a href="{% url 'account:user-profile' user.slug %}">{{i.user_id.first_name}}</a>
+                        </div>
+                        <p>{{i.title}}</p>
+                        
+                        <a href="{% url 'product:single-product' i.slug %}" style="width: 80%; text-align: center;">
+                            <button style="margin: 0 auto;">{{i.price}} AZN</button>
+                        </a>
+                        <div class="activate-button">
+        
+                        </div>
+                    </div>
+                </div>
+                
+            {% endfor %}
+            
+        </div>
+    </section> 
+    
+    {% endif %}
+    <nav aria-label="Page navigation example">
+        {% if is_paginated %}
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+          <li class="page-item d-flex align-items-center justify-content-center">
+            <a class="page-link" href="?page={{page_obj.previous_page_number}}"
+              >&laquo;</a
+            >
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#">&laquo;</a>
+          </li>
+          {% endif %} {% for i in paginator.page_range %} {% if page_obj.number == i %}
+          <li class="page-item"><a class="page-link active text-danger bg-light">{{ i }}</a></li>
+          {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+          </li>
+          {% endif %} {% endfor %} {% if page_obj.has_next %}
+          <li class="page-item d-flex align-items-center justify-content-center">
+            <a href="?page={{page_obj.next_page_number}}" class="page-link"
+              >&raquo;</a
+            >
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <a class="page-link">&raquo;</a>
+          </li>
+          {% endif %}
+        </ul>
+        {% endif %}
+      </nav>
+
+    
+
+{% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+    {% endblock %}
+
+    {% block js %}
+        <script src="{% static 'js/userrating.js' %}"></script>
+    {% endblock %}
+    

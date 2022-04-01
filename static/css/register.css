@@ -1,0 +1,231 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+
+
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+
+
+#reklam-banner-left-side-register-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-register-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+
+}
+
+@media only screen and (max-width: 768px){
+    #reklam-banner-left-side-register-page{
+        width: 15%;
+        height: 60vh;
+        position: absolute;
+        
+    }
+    #reklam-banner-right-side-register-page{
+        width: 15%;
+        height: 60vh;
+        position: absolute;
+        right: 0;
+    
+    }
+}
+
+
+
+
+
+body{
+    background: #E5E5E5;
+}
+
+.container{
+    width: 70% !important;
+}
+
+
+#user-profile-main{
+    width: 60%;
+    margin: 5% auto;
+}
+
+#user-form{
+    display: flex;
+    flex-direction: column;
+    margin: 10% 5%;
+}
+
+#user-profile-form{
+    background-color    : #FFFFFF;
+    border-radius: 27px;    
+}
+
+.user-form-input{
+    width: 80%;
+    margin: 3% auto;
+    background: #EEEEEE;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    height: 50px;
+    color: grey;
+    padding-left: 5%;
+}
+
+#user-form-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5%;
+    height: 50px;
+}
+
+.left-button{
+    border-radius: 8px;
+    border: 1px solid #ED1F24;
+    background-color: #FFFFFF;
+    color: #ED1F24;
+}
+
+.right-button{
+    background: #ED1F24;
+    border-radius: 4px;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+}
+
+#user-profile-image{
+    width: 100%;
+    margin-top: 3%;
+}
+#user-form-buttons{
+    width: 80%;
+    margin: 5% auto;
+}
+#right-button{
+    width: 100%;
+}
+
+#id_image::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  #id_image::before {
+    content: 'Sekil Secin';
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+  }
+  #id_image:hover::before {
+    border-color: black;
+  }
+  #id_image:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+
+
+#notmarket{
+    border: none;
+    width: 40%;
+    height: 50px;
+
+}
+#market{
+    border: none;
+    width: 40%;
+    height: 50px;
+
+}
+#buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+#id_image{
+    display: none !important;
+}
+.right-button-image{
+    background: #ED1F24;
+    border-radius: 4px;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    margin: 0 auto;
+    height: 50px;
+    width: 80%;
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .register-img{
+        display: none !important;
+    }
+    #user-form-buttons{
+        width: 80%;
+        margin: 5% auto;
+    }
+    #right-button{
+        width: 100%;
+    }
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}

@@ -1,0 +1,164 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+#reklam-banner-left-side-singleproduct-page{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+}
+#reklam-banner-right-side-singleproduct-page{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+body{
+    background-color: #E5E5E5;
+}
+.container{
+    width: 70% !important;
+}
+
+ul{
+    padding: 0;
+}
+li{
+    text-align: center;
+}
+.product-carousel{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+.fancybox__image{
+    width: 1000px;
+    height: 600px;
+}
+.product-information-div{
+    width: 80%;
+    text-align: start;
+    margin: 0 auto;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.product-price{
+    outline: none;
+    border: 2px solid #ED1F24;
+    background-color: #E5E5E5;
+    color: #ED1F24;
+    width: 250px;
+    height: 50px;
+    border-radius: 12px;
+    cursor:text;
+}
+.product-user-number{
+    background-color:#ED1F24 ;
+    border-radius: 12px;
+}
+.user-a{
+    text-decoration: none;
+    color: white;
+}
+.user-a:hover{
+    text-decoration: none;
+    color: white;
+}
+.product-user-information{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}
+
+.img-cr{
+    width: 50%; 
+    margin: 0 auto;
+}
+
+
+
+@media only screen and (max-width:768px){
+    .product-information-div {
+        width: 80%;
+        text-align: start;
+        margin: 0 auto;
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .img-cr{
+        width: 100%; 
+        margin: 0 auto;
+    }
+    .product-price {
+        outline: none;
+        border: 2px solid #ED1F24;
+        background-color: #E5E5E5;
+        color: #ED1F24;
+        width: 100%;
+        margin-top: 10%;
+        height: 50px;
+        border-radius: 12px;
+        cursor: text;
+    }
+    .product-user-number {
+        background-color: #ED1F24;
+        border-radius: 12px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}

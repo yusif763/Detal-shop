@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/car_detail.css' %}">
+{% endblock %}
+{% block content %}
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-cardetail-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-cardetail-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+    <section id="car-parts">
+        <div id="car-parts-main">
+            
+            {% for i in main_categories%}
+            {% if i.category_order == 1 %}
+            <div  id="front-part">
+                <a href="{% url 'main:sub-parts' marka model i.slug %}"><button class="car-part">{{i.title}}</button></a>
+            </div>
+            <div id="front-arrow">
+                <img style="width: 50%;" src="{{i.image.url}}" alt="">
+            </div>
+            {%endif%}
+            {% if  i.category_order == 2 %}
+            <div  id="middle-part">
+                 <a href="{% url 'main:sub-parts' marka model i.slug %}"><button class="car-part">{{i.title}}</button></a>
+            </div>
+            <div id="middle-arrow">
+                <img src="{{i.image.url}}" alt="">
+            </div>
+            {% endif %}
+            {% if  i.category_order == 3 %}
+            <div  id="back-part">
+                 <a href="{% url 'main:sub-parts' marka model i.slug %}"><button class="car-part">{{i.title}}</button></a>
+            </div>
+            <div id="back-arrow">
+                <img style="width: 50%;"  src="{{i.image.url}}" alt="">
+            </div>
+            {% endif %}
+            {% if  i.category_order == 4 %}
+            <div id="image-part">
+                <img id="car-img" src="{% static '/assets/images/image-removebg-preview (3) 10.png' %}" alt="">
+            </div>
+            <div  id="under-part">
+                <a href="{% url 'main:sub-parts' marka model i.slug %}"><button class="car-part under-part">{{i.title}}</button></a>
+                
+            </div>
+            <div id="under-arrow">
+                <img src="{{i.image.url}}" alt="">
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+
+
+
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}

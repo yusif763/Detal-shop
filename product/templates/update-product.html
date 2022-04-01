@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/add-product.css' %}">
+{% endblock %}
+{% block content %}
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-addproduct-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-addproduct-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+{% if request.user.is_authenticated and user == request.user  %}
+
+<div id='card' class="animated fadeIn">
+    <div id='upper-side'>
+      <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg version="1.1" id="checkmark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve">
+          <path d="M131.583,92.152l-0.026-0.041c-0.713-1.118-2.197-1.447-3.316-0.734l-31.782,20.257l-4.74-12.65
+      c-0.483-1.29-1.882-1.958-3.124-1.493l-0.045,0.017c-1.242,0.465-1.857,1.888-1.374,3.178l5.763,15.382
+      c0.131,0.351,0.334,0.65,0.579,0.898c0.028,0.029,0.06,0.052,0.089,0.08c0.08,0.073,0.159,0.147,0.246,0.209
+      c0.071,0.051,0.147,0.091,0.222,0.133c0.058,0.033,0.115,0.069,0.175,0.097c0.081,0.037,0.165,0.063,0.249,0.091
+      c0.065,0.022,0.128,0.047,0.195,0.063c0.079,0.019,0.159,0.026,0.239,0.037c0.074,0.01,0.147,0.024,0.221,0.027
+      c0.097,0.004,0.194-0.006,0.292-0.014c0.055-0.005,0.109-0.003,0.163-0.012c0.323-0.048,0.641-0.16,0.933-0.346l34.305-21.865
+      C131.967,94.755,132.296,93.271,131.583,92.152z" />
+          <circle fill="none" stroke="#ffffff" stroke-width="5" stroke-miterlimit="10" cx="109.486" cy="104.353" r="32.53" />
+        </svg>
+        <h3 id='status'>
+        Təbriklər
+      </h3>
+    </div>
+    <div id='lower-side'>
+      <p id='message'>
+        Elanınız əlave edildi baxış keçirildikdən sonra şərh ediləcəkdir
+      </p>
+      <a href="{% url 'main:home' %}" id="contBtn">Davam Edin</a>
+    </div>
+  </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-5" id="add-product-form">
+        <h3 style="color: #ED1F24;; text-align: center;" class=" pt-5">Məhsulu Əlavə Etmək</h3>
+        <form id="product-form" enctype="multipart/form-data" action="" method="post" >
+            {% csrf_token %}
+            <select class="product-form-input" name="markalar" id="masin-markalari" form="carform">
+                <option class="" value="{{product.marka_id.id}}">{{product.marka_id}}</option>
+            </select>
+            <select class="product-form-input" name="modeller" id="masin-modelleri" form="carform">
+                <option class="" value="{{product.modell_id.id}}">{{product.modell_id}}</option>
+            </select>
+            <select class="product-form-input" name="iller" id="buraxilis-illeri" form="carform">
+                <option class="" value="{{product.year}}">{{product.year}}</option>
+            </select>
+            <select class="product-form-input" name="parent-cat" id="parent-categories" form="carform">
+                <option class="" value="{{product.category_id.parent_category.parent_category.id}}">{{product.category_id.parent_category.parent_category}}</option>
+            </select>
+            <select class="product-form-input" name="sub-parent-cat" id="sub-parent-categories" form="carform">
+                <option class="" value="{{product.category_id.parent_category.id}}">{{product.category_id.parent_category}}</option>
+            </select>
+            <select class="product-form-input" name="chil-cats" id="child-categories" form="carform">
+                <option class="" value="{{product.category_id.id}}">{{product.category_id}}</option>
+            </select>
+            <input class="product-form-input" type="text" id="product-price" placeholder="Məhsulun qiyməti" value="{{product.price}}">
+            <input class="product-form-input" type="text" id="product-ban" value="{{product.vin_code}}">
+            <input class="product-form-input" type="text" id="product-title" value="{{product.title}}">
+
+            <!-- <input id="add-product-main-image" type="file"> -->
+            <button type="button" class="right-button-image" onclick="document.getElementById('gallery-photo-add').click()">Şəkil Əlavə et</button>
+            <input type="file" multiple id="gallery-photo-add" style="display: none;">
+            <div class="gallery row mt-5">
+                {% for img in product.product_image.all%}
+                <img class="col-3" src="{{img.image.url}}" alt="">
+                {% endfor %}
+            </div>
+            <div style="width: 50%; margin: 5% auto;text-align: center;" >
+                <h6>Minumum 3 şəkil əlavə edilməlidir</h6>
+                <h6>Şəkillər ön ,arxa,üst görünüşdən çəkilməlidir </h6>
+            </div>
+            <div id="product-form-buttons">
+                <button class="col-5 left-button">Geriyə</button>
+                <button id="search" class="col-5 right-button">Yadda Saxla</button>
+            </div>
+            <p id="product-slug" style="display: none;">{{product.slug}}</p>
+        </form>
+    </div>
+    {% endif %}
+
+
+
+    {% for reklam in reklamlar %}
+{% if reklam.is_bottom %}
+<section id="reklam-banner-bottom-section" class="mt-5">
+    <div id="reklam-banner-bottom">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+    {% endblock %}
+
+
+
+
+    {% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{% static '/js/update-product.js' %}"></script>
+    
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
